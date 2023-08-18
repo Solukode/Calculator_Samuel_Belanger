@@ -78,7 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     header("Location: index.php?result=" . $value);
-    echo '<p style="font-size: 60;">Le résultat est : ' . $value . '</p>';
 
 }
 
