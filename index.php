@@ -23,6 +23,7 @@
         <input type="submit" class="btn btn-primary" name="submit" value="Calculate!">
     </form>
 
+    <!-- Récupere les requetes get si disponible et affiche le message correspondant -->
     <?php if (isset($_GET['error'])): ?>
         <p style="color: red;"><?php echo $_GET['error']; ?></p>
     <?php endif; ?>

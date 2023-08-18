@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $num2 = filter_input(INPUT_POST, 'num2', FILTER_SANITIZE_NUMBER_FLOAT);
     $operator = htmlspecialchars($_POST['func']);
 
-    //Gestion des erreurs
+    //Gestion des erreurs pour champs vide et non numérique
     if(empty($num1) || empty($num2) || empty($operator)) {
         $error = 'Tous les champs sont requis';
         header("Location: index.php?error=" . urlencode($error));
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    //Calcul
+    //Calcul selon l'opérateur choisi
     switch ($operator) {
         case "+":
             $value = $num1 + $num2;
@@ -77,6 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
     }
 
+    //renvoi sur index.php avec le resultat
     header("Location: index.php?result=" . $value);
 
 }
